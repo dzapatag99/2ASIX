@@ -28,7 +28,7 @@ const getTeams = async()=>{
 
     const response = await fetch('data/teams.json');
     const data = await response.json();
-    teamsJSON = data.teams;
+    teamsJSON = orderTeams(data.teams);
 
 
 };
@@ -45,7 +45,7 @@ const populateTeams = (teams)=>{
       containerFilas.innerHTML+=
         `
             <tr>
-            <td class="num">${index+1}</td>
+            <td class="num" id="index">${index+1}</td>
             <td><img src="./img/${team.img}" alt=""></td>
             <td class="team">${team.name}</td>
             <td>${team.matchPoints.pt}</td>
@@ -57,9 +57,43 @@ const populateTeams = (teams)=>{
             <td>${team.matchPoints.gc}</td>
         </tr>
             `
+            position = index;
+            console.log(position)
     });
  
+        
 };
+
+const orderTeams = (list) => {
+
+    let temporal = [];
+    let order = [];
+
+    list.forEach(element => {
+
+        const totalPoints = calculatePoints(element.matchPoints.pg,element.matchPoints.pe);
+
+        temporal.push(totalPoints);
+        
+    });
+
+    temporal = temporal.sort((a, b) => b - a);
+    
+    temporal = new Set(temporal);
+
+    temporal.forEach(element => {
+        
+        const ordenated = list.filter(team => calculatePoints(team.matchPoints.pg,team.matchPoints.pe) == element );
+        
+        ordenated.forEach(element => {
+            order.push(element);
+        });
+    });
+
+    return order;    
+
+}
+
 
 
 // TODO 3:Develop functions to order teams depending on total puntuation  
@@ -81,4 +115,5 @@ const getClassTeam = (position) => {
     if (position>=18) return "type-descenso";
     // By default
     return "num";
+
 };
