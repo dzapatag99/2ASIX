@@ -18,6 +18,8 @@ const calculatePoints = (pg, pe)=>{
 window.onload = async()=>{
     // Load data
     await getTeams();
+    calculateTeamsTotalPoints();
+    sortTeamsByPoints();
     populateTeams(teamsJSON);
 
 
@@ -28,7 +30,7 @@ const getTeams = async()=>{
 
     const response = await fetch('data/teams.json');
     const data = await response.json();
-    teamsJSON = orderTeams(data.teams);
+    teamsJSON = data.teams;
 
 
 };
@@ -38,14 +40,14 @@ const populateTeams = (teams)=>{
     containerFilas.innerHTML="";
     
 
-    teams.forEach((team, index) => {
+    teams.forEach((team) => {
 
         team.matchPoints.pt=calculatePoints(team.matchPoints.pg,team.matchPoints.pe)
 
       containerFilas.innerHTML+=
         `
             <tr>
-            <td class="num" id="index">${index+1}</td>
+            <td class="${getClassTeam(team.position)}" id="index">${team.position}</td>
             <td><img src="./img/${team.img}" alt=""></td>
             <td class="team">${team.name}</td>
             <td>${team.matchPoints.pt}</td>
@@ -64,35 +66,26 @@ const populateTeams = (teams)=>{
         
 };
 
-const orderTeams = (list) => {
-
-    let temporal = [];
-    let order = [];
-
-    list.forEach(element => {
-
-        const totalPoints = calculatePoints(element.matchPoints.pg,element.matchPoints.pe);
-
-        temporal.push(totalPoints);
-        
+const calculateTeamsTotalPoints = () =>{
+    teamsJSON.forEach(team => {
+        team.matchPoints.pt=calculatePoints(team.matchPoints.pg,team.matchPoints.pe)
     });
-
-    temporal = temporal.sort((a, b) => b - a);
-    
-    temporal = new Set(temporal);
-
-    temporal.forEach(element => {
-        
-        const ordenated = list.filter(team => calculatePoints(team.matchPoints.pg,team.matchPoints.pe) == element );
-        
-        ordenated.forEach(element => {
-            order.push(element);
-        });
-    });
-
-    return order;    
-
 }
+
+const sortTeamsByPoints = () =>{
+    teamsJSON = teamsJSON.sort((a, b) =>{
+        let pointsA = a.matchPoints.pt;
+        let pointsB = b.matchPoints.pt;
+        if(pointsA > pointsB) return -1;
+        else if(pointsA < pointsB) return 1;
+        else return 0;
+    });
+
+    teamsJSON.forEach((team, index) => {
+            team.position = (index+1);
+            console.log(team.position)
+    });
+};
 
 
 

@@ -13,6 +13,7 @@ body{
 
 table{
     border-collapse: collapse;
+    width: 100%;
 }
 
 .header-table th{
@@ -72,4 +73,63 @@ tbody tr:nth-child(even) {
 }
 .filter-container .order{
     font-weight:bold;
+}
+
+.type-situation{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.info-colums{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 0.7rem;
+    color:#9b9b9b;
+}
+.info-colums span{
+    font-weight: bold;
+    
+}
+
+.type-cham-leag, .type-europa-leag, .type-conf-leag, .type-descenso{
+    position: relative;
+    padding:5px 10px 5px 10px;
+}
+.type-cham-leag:after, 
+.type-europa-leag:after,
+.type-conf-leag:after,
+.type-descenso:after{
+    content: '';
+    position:absolute;
+    display: block;
+    background-color: #09a751;
+    top:0;
+    left:0;
+    width: 5px;
+    height: 100%;
+
+}
+.type-europa-leag:after{
+    background-color: #ffc72b;
+}
+.type-conf-leag:after{
+    background-color: #d3d3d3;
+}
+.type-descenso:after{
+    background-color: #ee4036;
+}
+
+.champions-league{
+    background-color: #09a751;
+}
+.europa-league{
+    background-color: #ffc72b;
+}
+.conference-league{
+    background-color: #d3d3d3;
+}
+.descenso{
+    background-color: #ee4036;
 }
