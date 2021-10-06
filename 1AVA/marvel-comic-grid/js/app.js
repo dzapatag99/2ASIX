@@ -9,13 +9,13 @@ const fetchData = async () => {
         const res = await fetch('data/comic.json');
         const data = await res.json();
         console.log(data);
-        populateProducts(data);
+        populateComics(data);
     } catch (error) {
         console.log(error);
     }
 };
 
-const populateProducts = (data) => {
+const populateComics = (data) => {
     const template = document.querySelector('#template-comics').content;
     const fragment = document.createDocumentFragment();
     // console.log(template)
