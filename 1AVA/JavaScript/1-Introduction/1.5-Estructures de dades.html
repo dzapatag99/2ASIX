@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+
+			// Array
+			/*------------------------------------*/
+			var numeros = [1,2,3];
+			var meses = new Array("Abril", "Mayo", "Agosto");
+			var combinado = ["Hola", 20, null, false, undefined];
+			let client = [1,"Juan", "Pérez", 678900879, "email@gmail.com"];
+			console.log(meses);
+
+			// Accedir a un element
+			console.log("Acceder al mes:", meses[2]);
+
+			// Funcions sobre array
+			meses.push("Junio");
+			meses.unshift("Enero");
+			meses.pop("Junio");
+			console.log(meses);
+
+
+			var position = meses.indexOf("Abril");
+			console.log("Posición del mes Abril:", position);
+
+
+			var cenaJustIt = ["Hamburguesa", "Pizza", "Ensalada"];
+			cenaJustIt.sort();
+			console.log(cenaJustIt);
+
+			// Array bidimensional o matriu
+			/*------------------------------------*/
+			let dadesClients = [
+				["1", "Pere", "Ferrer", "648-898-769"],
+				["3", "Joan", "Gomila", "631-445-779"],
+				["2", "Sara", "Gómez", "653-378-889"],
+				["4", "Xavi", "Caraibe", "908-456-789"]
+			];
+
+			let fila4 =dadesClients[3];
+			
+			// Recorrer una matriu 
+			for(let client of dadesClients){
+				console.log("-Dades client:"+ client[1] +" "+ client[2] );
+			}
+
+			// Objectes
+			/*------------------------------------*/
+			// Creació d'un objecte
+			let videojoc={
+				"id":1,
+				"title":"The Witcher",
+				"year":2010,
+				"category":"aventures",
+				"Personajes":["Lara","Gorgi","Gelart"]
+			};
+
+			console.log("-Títol:" + videojoc.title );
+			console.log("-Any:" + videojoc.year );
+
+
+			// Array d'objectes
+			let llistaVideojocs=[
+				{"id":1, "title":"The Witcher", "year":2010, "category":"action"},
+				{"id":2, "title":"Fornite", "year":2009, "category":"shooter"},
+				{"id":3, "title":"Driver", "year":2019, "category":"sport"},
+				{"id":4, "title":"The last man", "year":2020, "category":"terror"}
+			];
+
+			for(let game of llistaVideojocs){
+				console.log("-Dades joc:"+ game.title +" "+ game.year );
+			}
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

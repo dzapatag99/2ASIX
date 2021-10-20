@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Tipus d'errors:
+        - Errors de sintaxi
+        - Runtime Errors: durant l'execució del programa ( pot ser segons les dades d'entrada)
+        - Errors lògics: error del programador en la lògica del programa
+        
+        */
+
+        // Capturar error del un bloque de código
+        try {
+            var a = 5;
+            var b = 8;
+            var resultado= a+b;
+            // En este caso no existe el ID de la capa.
+            document.getElementById("content").innertHTML=resultado;
+
+        } catch (error) {
+            alert(error);
+            console.log("error en el programa. #");
+        }
+
+        // Ejemplo donde se lanza un error personalizado
+        try {
+            let price = -1
+            if (price<0){
+                throw new Error("Error inesperado. Precio negativo");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
+        // Error personalizado creando una clase mediante una función
+        function ErrorCarrito(message){
+            this.name = "Error carrito:";
+            this.description= this.name + message;
+        }
+        try {
+            throw new ErrorCarrito("Error en la compra de los productos");
+        } catch (error) {
+            console.log(error.description);
+            
+        }
+
+    </script>
+</body>
+</html>

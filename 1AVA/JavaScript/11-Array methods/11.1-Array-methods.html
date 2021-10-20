@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const canciones = [
+            { "titulo": "La Canción",           "artista": "Sebastián Romero",  "publicacion": "12-02-2021", "duracion": 2.2, "precio":2 },
+            { "titulo": "Fuentes",              "artista": "Alex Ferrer",       "publicacion": "01-02-2021", "duracion": 4.3, "precio":2 },
+            { "titulo": "Amorfina",             "artista": "Marion",            "publicacion": "10-01-2021", "duracion": 3.6, "precio":2 },
+            { "titulo": "Gigarrillo y café",    "artista": "Josue Alaniz",      "publicacion": "11-01-2021", "duracion": 3.2, "precio":2 },
+            { "titulo": "Quimera",              "artista": "Alba Reche",        "publicacion": "15-01-2021", "duracion": 3.2, "precio":2 }
+        ];
+
+        // Recorrer array
+        canciones.forEach(cancion => {
+            //alert(cancion.artista);
+            console.log("Artista canción", cancion.artista);
+        });
+
+
+        // Comprueba si al menos un elemento del array cumple con la condición 
+        let existeCancion = canciones.some(element => element.artista=="Alba Reche");
+        //alert("Existe canción:" + existeCancion);
+        console.log("Existe canción Amorfina:" + existeCancion);
+        
+
+        // Encontrar ul primer elemento que coincide con la condición
+        let cancion = canciones.find(element => (element.artista=="Alex Ferrer") );
+        //alert("Canción encontrada:" + cancion.titulo);
+
+
+        // Devolver una lista con los elementos que coincidan con la condición
+        let listaCancionesFiltrada = canciones.filter(element => (element.duracion==3.2) );
+        //alert("Canciones encontradas:" + listaCancionesFiltrada);
+        console.table(listaCancionesFiltrada)
+
+
+        // Modifica cada canción (que dure más de 3 minutos) subiendo el precio. 
+        let listaCancionesSubidaPrecio = canciones.map((cancion) => {
+            // No modificar la canción orginal
+            let nuevaCancion = { "titulo": "","artista": "",  "publicacion": "", "duracion": 0, "precio":0 };
+            nuevaCancion.titulo = cancion.titulo;
+            nuevaCancion.artista = cancion.artista;
+            nuevaCancion.publicacion = cancion.publicacion;
+            nuevaCancion.duracion = cancion.duracion;
+            nuevaCancion.precio = cancion.precio;
+
+            if (nuevaCancion.duracion >= 3) {
+                nuevaCancion.precio += 2; // dos euritos más 
+                return nuevaCancion; // retorna canción modificada
+            } 
+            return nuevaCancion; // retorna canción no modificada
+        });
+        console.table(listaCancionesSubidaPrecio);
+
+        console.log("%c La tabla original no cambia", "color:red;padding:5px;background-color:#ddd");
+        console.table(canciones);
+
+        //REDUCE - utilizada para calcular totales o datos acumulados
+        /*-----------------------------------------------------------*/
+
+        const puntos = [5,6,8, 9.5];
+        const total = puntos.reduce((a,v)=>a+v);
+        console.log("Total puntos",total);
+
+        const lista = [
+            {"nombre":"Pedro", "edad":55, "salario":50000 },
+            {"nombre":"Juan", "edad":45, "salario":40000 },
+            {"nombre":"Laura", "edad":35, "salario":30000 },
+            {"nombre":"Pedro", "edad":33, "salario":30000 }
+        ];
+
+        const totalSalarios = lista.map(e=>e.salario).reduce((a,v)=>a+v);
+        console.log( totalSalarios );
+
+
+
+    </script>
+</body>
+
+</html>

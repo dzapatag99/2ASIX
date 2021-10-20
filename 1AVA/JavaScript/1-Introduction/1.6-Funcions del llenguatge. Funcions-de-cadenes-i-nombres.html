@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*------------------------------------*/
+			// Funcions del llenguatge
+			/*------------------------------------*/
+		
+		
+			/*------------------------------------*/
+			// Funcions de CADENES DE TEXT
+			/*------------------------------------*/
+			let nom, llinatges, nomComplet, missatge;
+			nom = "Juan";
+			llinatges = "Ferrer Pérez";
+			nomComplet = nom + " " + llinatges;
+			console.log("1-" + nomComplet);
+
+
+			missatge = "Aprendiendo javascript CSS, HTML...";
+			console.log("Prova de les funcions de text");
+			console.log("-------------------------------------");
+			console.log("2-" + missatge.indexOf("CSS") ); // Torna posició CSS,
+			var posicionPhp = missatge.indexOf("PHP");
+			console.log("3-" + posicionPhp ); //  Torna -1 si no troba dades
+
+			console.log("4-" + missatge.substring(3,20) );
+			console.log("5-" + missatge.slice(0,11) ); // retorna les 11 primeres
+			let fecha = "26/10/2019";
+			console.log(fecha.split('/') ); // Separa segon cadena de separació indiciada
+			console.log("7-" + missatge.replace('CSS', 'PHP') );
+
+			let missatge2 = "javascript ";
+			console.log("8-" + missatge2.repeat(10) );
+			
+					
+			/*------------------------------------*/
+			// Funcions de la classe (mòdul) Math
+			/*------------------------------------*/
+			/*------------------------------------*/
+			console.log("Prova de les funcions de nombres");
+			console.log("-------------------------------------");
+			result = Math.round(2.5);
+			console.log("1 - Resultat funció Math: " + result);
+
+			result = Math.ceil(2.4);
+			console.log("2 - Resultat funció Math: " + result);
+
+			result = Math.floor(2,99);
+			console.log("3 - Resultat funció Math: " + result);
+
+			result = Math.min(1,6,5,4,3);
+			console.log("4 - Resultat funció Math: " + result);
+
+			result = Math.max(1,6,5,4,3);
+			console.log("5 - Resultat funció Math: " + result);
+
+			result = Math.random(); //entre 0..1
+			console.log("6 - Resultat funció Math: " + result);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

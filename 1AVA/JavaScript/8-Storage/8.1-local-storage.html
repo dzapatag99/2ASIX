@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Storage</title>
+	<style media="screen">
+		.container {
+			border: 1px solid #ccc;
+			min-height: 100px;
+			background-color: #eee;
+			margin-top: 2%;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Formulari per desar l'item "titleGame" -->
+	<div class="container">
+		<form>
+			<input type="text" id="title-game" name="txt-title-game" value="" />
+			<input type="button" name="Desa dades" value="Desa dades" onclick="saveTitleInStorage()" />
+
+			<div>
+				<label>Dades al storage:</label>
+				<p id="container-game"></p>
+			</div>
+		</form>
+	</div>
+
+	<!-- Formulari per desar l'item "user" tipus objecte JSON -->
+	<div class="container">
+		<form>
+			<fieldset>
+				<legend>Dades usuari</legend>
+				<label>id:</label>
+				<input type="number" id="user-id" name="id" value="" />
+				<label>Nom:</label>
+				<input type="text" id="user-name" name="name" value="" />
+				<label>Mòbil</label>
+				<input type="tel" id="user-mobile" name="mobile" value="" />
+				<button type="button" name="button" onclick="saveUserInStorage()">Desa dades usuari</button>
+			</fieldset>
+		</form>
+
+		<button type="button" name="button" onclick="getUserFromStorage()">Mostra dades usuari del storage</button>
+		<p id="container-user"></p>
+	</div>
+
+	<p><a href="8.2-local-storage-remove.html">Segona pàgina</a></p>
+
+
+	<script type="text/javascript">
+		/*Atenció! S'ha de fer servir a un servidor (mateix domini),
+		en cas contrari no es podrà recupera la informació entre pàgines web
+		del mateix domini
+		*/
+
+		// funció que desa un item concret al storage
+		function saveTitleInStorage() {
+			// Exemple bàsic fent ús de localStorage.setItem(key, value);
+			// Amb valors fitxes d'exemple: localStorage.setItem("titleGame", "Fornite");
+			let txtTitle = document.getElementById('title-game').value;
+			localStorage.setItem("titleGame", txtTitle);
+			document.getElementById("container-game").innerHTML = localStorage.getItem("titleGame");
+		}
+
+		function saveUserInStorage() {
+			// Comprovar en primer lloc si l'objecte Storage es troba definit al motor del navegador
+			if (typeof (Storage) == "undefined") {
+				alert("localStorage no soportat pel navegador");
+			} else {
+				// LocalStorage disponible
+				// Guardar i extreure objectes json del Storage:
+				let userObj = {
+					"id": document.getElementById('user-id').value,
+					"name": document.getElementById('user-name').value,
+					"mobile": document.getElementById('user-mobile').value
+				};
+				localStorage.setItem("user", JSON.stringify(userObj));
+				alert("Dades desades correctament");
+			}
+		}
+
+		function getUserFromStorage() {
+			// Recupera l'item del storage i el transforma a un objecte JSON.
+			let userObjStorage = JSON.parse(localStorage.getItem("user"));
+			console.log(userObjStorage);
+			let container = document.getElementById("container-user");
+			container.innerHTML = `<p>Name: ${userObjStorage.name} </p>
+								   <p>Mobile: ${userObjStorage.mobile} </p>
+								  `;
+		}
+
+	</script>
+
+
+</body>
+
+</html>
