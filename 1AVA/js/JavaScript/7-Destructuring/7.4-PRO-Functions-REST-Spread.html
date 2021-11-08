@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+        /*
+        Reference:
+        https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f
+
+        Definition: Destructuring simply implies breaking down a complex structure into simpler parts.
+        */
+    /*
+        Nota: para el destructuring:
+        - Para arrays se utiliza []
+        - Para JSON se utiliza {}
+    */
+
+    // Ejemplo 1
+    /*------------------------------------------------------------*/
+    const producto = {
+        id : 2897,
+        nombre: "Televidor",
+        precio: 650.5
+    }
+    // Creamos las variables automáticamente a partir del objeto
+    const { id, nombre, precio } = producto;
+    console.log(id, nombre, precio); 
+  
+
+    // Ejemplo 2 - Default values
+    /*------------------------------------------------------------*/
+    const person = {
+        name: 'John Doe',
+        country: 'Canada'
+    };
+    // Assign default value of 25 to age if undefined
+    // Si no existe age lo podemos inicializar
+    const { name, country, age = 25 } = person;
+    console.log(`I am ${name} from ${country} and I am ${age} years old.`);
+
+    // Ejemplo 3 - Using Different Variable Names
+    /*------------------------------------------------------------*/
+    // Assign default value of 25 to years if age key is undefined
+    const { name: fullname, country: place, age: years = 25 } = person;
+
+    // Here I am using ES6 template literals
+    console.log(`I am ${fullname} from ${place} and I am ${years} years old.`);
+
+
+    // Ejemplo 4 -  sintaxis extendida o spread syntax
+    /*------------------------------------------------------------*/
+    const producto2 = {
+            id : 2898,
+            nombre: "Thermomix",
+            precio: 850.5
+        }
+    function mostrarProductos(listaTotalProductos){
+            console.log(listaTotalProductos);
+    }
+    let listaProductos = [producto, producto2];
+    // utilizando el operador "..." (res operator) devolvemos los productos por separado del array
+    // Para crear un  nuevo array
+    mostrarProductos([...listaProductos, {id : 3698,nombre: "Playstation",precio: 400.5}]);
+
+    // Ejemplo 5
+    /*------------------------------------------------------------*/
+    let pedido={
+        ciente: {
+            id:"435",
+            name:"Juan",
+            dni:"45675435F"
+        },
+        productos:listaProductos
+    }
+    const student = {
+        name: 'Joan Gómez',
+        age: 16,
+        scores: {
+            maths: 74,
+            english: 63,
+            science: 85
+        }
+    };
+    function mostrarNotas({ name, scores: { maths = 0, english = 0, science = 0 } }) {
+        console.log('Extraer datos del objecto inicial ');
+        console.log('Hello, ' + name);
+        console.log('Your Maths score is ' + maths);
+        console.log('Your English score is ' + english);
+        console.log('Your Science score is ' + science);
+    }
+    mostrarNotas(student);
+
+
+    // Ejemplo 6
+    /*------------------------------------------------------------*/
+    //Realizar una copia de un array
+    const copiaListaProductos  = [...listaProductos];
+    console.log(copiaListaProductos);
+
+
+    // Acceder a objetos dentro de objetos
+    /*------------------------------------------------------------*/
+    const cliente = {
+        tipo: "Premium",
+        nombre:"Juan",
+        datos:{
+            residencia:{
+                provicia:"Islas Baleares",
+                ciudad: "Palma de mallorca"
+            },
+            cuenta:{
+                fechaApertura:"10-10-2009",
+                saldo: 4000
+            }
+        },
+        movimientos: ["07-11-2009","06-01-2010","05-01-2011"]
+    }
+    // Se extrae los datos del objeto residencia del cliente
+    let {datos:{residencia}} = cliente;
+    console.log("ciudad residencia:", residencia.ciudad);
+
+    let { movimientos:[,segundoMovimiento] } = cliente;
+    console.log("Fecha segundo movimiento:", segundoMovimiento);
+     
+    </script>
+</body>
+</html>

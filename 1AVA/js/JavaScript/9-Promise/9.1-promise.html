@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const esperando = new Promise(
+            function(resolve, reject){
+                setTimeout(function(){
+                    resolve("se ejectutó");
+                }, 5000);
+        });
+
+        esperando.then(
+            function(mensaje){
+                console.log(mensaje);
+            }
+        );
+
+        // Creación del objeto promise
+        const aplicarDescuento = new Promise(
+            function(resolve, reject){
+                let descuento = false;
+                if (descuento){
+                    resolve('Descuento aplicado');
+                }else{
+                    reject("No se puede aplicar descuento");
+                }
+            });
+
+        // Ejecución de la promesa
+        aplicarDescuento.then(
+            function(resultado){
+                console.log(resultado);
+            }
+        ).catch(
+            // Se ejecutará el error cuando descuento sea false
+            function(error){
+                console.log(error);
+                
+            }
+        );
+        
+
+    </script>
+</body>
+</html>
