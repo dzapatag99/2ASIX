@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // Destructuring de un array
+        /*-------------------------------------------*/
+        const personajes = ['Goku', 'Vegeta', 'Trunks'];
+        const [per1, per2, per3] = personajes;
+        console.log(per1, per2, per3);
+
+        const [, , p3] = personajes;
+        console.log(p3);
+
+        const lista = [
+            {"nombre":"Pedro", "edad":55, "salario":50000 },
+            {"nombre":"Juan", "edad":45, "salario":40000 },
+            {"nombre":"Laura", "edad":35, "salario":30000 },
+            {"nombre":"Pedro", "edad":33, "salario":30000 }
+        ];
+
+        const [pedrito, juanito] = lista;
+        console.log("Datos de Pedro:", pedrito);
+        console.log("Datos de Juan:", juanito);
+
+
+        // Spread operator ...
+        /*-------------------------------------------*/
+        let arrayNumeros = [1,2,3,4];
+        let arrayNumeros2 = [ ...arrayNumeros, 5 ]; // 1,2,3,4
+        console.log(arrayNumeros2);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

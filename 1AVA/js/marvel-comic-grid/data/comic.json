@@ -1,0 +1,64 @@
+[
+    {
+        "id": 1,
+        "title": "Inferno #1",
+        "creator": "Hickman, Schitti",
+        "img": "inferno.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Extreme Carnage",
+        "creator": "Hickman, Schitti",
+        "img": "extreme_carnage.jpg"
+    },
+    {
+        "id": 3,
+        "title": "S.W.O.R.D",
+        "creator": "Hickman, Schitti",
+        "img": "sword.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Moon Knight",
+        "creator": "Hickman, Schitti",
+        "img": "moon_knight.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Darkhawk",
+        "creator": "Hickman, Schitti",
+        "img": "draw_hawk.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Winter Guard",
+        "creator": "Hickman, Schitti",
+        "img": "winter_guard.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Black Cat",
+        "creator": "Hickman, Schitti",
+        "img": "black_cat.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Wolverine",
+        "creator": "Hickman, Schitti",
+        "img": "wolverine.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Non-Stop Spider-Man",
+        "creator": "Hickman, Schitti",
+        "img": "non-stop.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Thor",
+        "creator": "Hickman, Schitti",
+        "img": "thor.jpg"
+    }
+
+
+]

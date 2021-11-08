@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div>
+				<h1>Dades usuari</h1>
+				<div id="user-data"></div>
+		</div>
+		<input type="button" id="btn-delete" name="esborrar" value="Esborrar dades del storage">
+
+		<p><a href="8-Storage/storage.html">Torna</a></p>
+
+		<script type="text/javascript">
+			// Item "titleGame" cofigurat a la primera pàgina
+			console.log("Game:"+localStorage.titleGame);
+
+			// Recuperand les dades del storage i les mostram per pantalla
+			let item = localStorage.getItem("user");
+			if (item){
+				// Si l'item no és null mostram les dades
+				let user = JSON.parse(item);
+				let container = document.getElementById("user-data");
+				container.innerHTML=`
+						<p>${user.name}</p>
+						<p>${user.mobile}</p>
+				`;
+			}else {
+				document.getElementById("user-data").innerHTML="user no es troba definit al storage";
+			}
+
+			// Assignació de l'event click al botó delete
+			let btnDelete = document.getElementById("btn-delete");
+			btnDelete.addEventListener("click",
+					function(){
+						alert("Esborrant storage");
+						// Hi ha dues formes per esborrar dades:
+						localStorage.removeItem("user"); //un element en concret
+						//localStorage.clear(); // Totes les dades del storage associades al storage
+						location.reload();
+						alert("Dades esborrades");
+					});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // Ejemplo 1
+        /*-----------------------------------------*/
+
+        const usuarios = [
+            {"nombre":"David", "email":"david@gmail.com", "username":"david30","password":"david123"},
+            {"nombre":"Laura", "email":"laura@gmail.com", "username":"laura19","password":"laura123"},
+            {"nombre":"Sara", "email":"sara@gmail.com", "username":"sara35","password":"sara123"}
+        ];
+
+        // Progamación estructurada
+        function buscarUsuario(paramUsername, paramPassword){
+            for(let usuario of usuarios){
+                if(usuario.username==paramUsername && usuario.password==paramPassword){
+                    return usuario;
+                }
+            }
+            return null;
+        }
+
+        console.log( "Usuario buscado:", buscarUsuario("david30", "david1234") );
+        
+        // Progamación funcional
+        const usuario = usuarios.find(e => e.username=="david30" && e.password=="david123" ).nombre;
+        console.log( "Usuario buscado con find:",  usuario);
+
+        // Ejemplo 2 - programación funcional
+        /*-----------------------------------------*/
+        const productos =[
+            {"nombre":"TV", "precio":23, "categoria":"ELE"},
+            {"nombre":"FIFA 2021", "precio":70, "categoria":"JUE"},
+            {"nombre":"Assassin's creed V", "precio":72, "categoria":"JUE"},
+            {"nombre":"Sabanas franela", "precio":40, "categoria":"HOG"}
+        ];
+
+        function encontrarProductosPorCategoria(pCat){
+            const productosCategoria = productos.filter(p => p.categoria == pCat);
+            return productosCategoria;
+        }
+
+        console.log("Productos de la categoria juegos", encontrarProductosPorCategoria("JUE") );
+        console.log("Productos de la categoria eletrodomésticos", encontrarProductosPorCategoria("ELE") );
+
+        // Ejemplo 3 -programación funcional
+        /*-----------------------------------------*/
+
+        function encontrarProductosPorCategoriaYPorPrecio(pCat, pPrecio){
+            const productosCategoria = productos.filter(
+                        p => p.categoria == pCat && p.precio <= pPrecio 
+                    );
+            return productosCategoria;
+        }
+        console.log("Datos encontrados", encontrarProductosPorCategoriaYPorPrecio("JUE", 70));
+
+        const arrayNombresJuegos = productos.filter(p => p.categoria == "JUE").map(e=>e.nombre);
+
+        console.log(arrayNombresJuegos);
+
+        // Ejemplo 4 -programación funcional
+        // Concatenación de funciones
+        /*-----------------------------------------*/
+        const sumaPreciosJuegos = productos.filter(p => p.categoria == "JUE")
+                                           .map(e=>e.precio)
+                                           .reduce((total,valor) => total+valor);
+        console.log("Precio total de juegos:", sumaPreciosJuegos);
+
+        function sumarPrecioProductos(lista, categoria){
+            let total = 0;
+            for(let producto of lista){
+                if (producto.categoria = categoria){
+                    total = total + producto.precio;
+                }
+
+            }
+            return total;
+        }
+
+        console.log("Precio total de juegos (estructurado):",sumarPrecioProductos(productos, "JUE") );
+
+
+        // Ejemplo 5 -programación funcional
+        /*-----------------------------------------*/
+        
+        // Formato arrow function
+        const encontrarProductosPorNombre = (pNombre) => {
+            const minNombre = pNombre.toLowerCase();
+            const datos = productos.filter(
+                    p => p.nombre.toLowerCase(minNombre).indexOf(minNombre)!=-1
+                );
+            return datos;
+        }
+        console.log("Productos que coinciden por nombre:", encontrarProductosPorNombre("creed") );
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

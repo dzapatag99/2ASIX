@@ -1,0 +1,12 @@
+
+# Web Components gratis
+- https://www.webcomponents.org/
+
+# Información web components
+- https://open-wc.org/
+
+# Makigas: Tutorial Web Components
+-https://www.youtube.com/watch?v=neko6u1vHcY
+
+# Librería principal LitElement
+- https://lit-element.polymer-project.org/guide

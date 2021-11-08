@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+</head>
+
+<body>
+
+	<div id="app">
+	</div>
+
+	<script type="text/javascript">
+		// Templates HTML
+		/*------------------------------------*/
+		const producte1 = "Pizza";
+		const desc = "lorem asdflasjlfsa";
+		const descuento ="10€";
+		const preu1 = 30;
+
+		// Forma tradicional: Templates literals
+		let codiHtml = "<ul>" +
+			"<li>Nom:" + producte1 + "</li>" +
+			"<li>Preu:" + preu1 + "</li>" +
+			"</ul>";
+
+
+		// Forma actual: Templates literals
+
+		let codiHtml2 = `<ul>
+							<li>Nom: ${producte1} </li>
+							<li>Descripció: ${desc} </li>
+							<li>Descompte: ${descuento} </li>
+							<li>Preu:${preu1} €</li>
+						</ul>
+						`;
+						
+		document.getElementById('app').innerHTML = codiHtml2;
+
+	</script>
+
+</body>
+
+</html>

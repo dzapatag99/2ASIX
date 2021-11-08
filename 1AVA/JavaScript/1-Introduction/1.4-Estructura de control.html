@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+
+			/*-------------------------------------------------------*/
+			// Estructura de control de selecció  (if)
+			/*-------------------------------------------------------*/
+
+			//Exemple 1
+			/*------------------------------------*/
+			const descompte = 10;
+			let totalFactura;
+			let totalCistella = 55;
+			if (totalCistella > 50){
+				totalFactura = totalCistella - descompte;
+
+			}else{
+				totalFactura = totalCistella;
+			}
+
+			console.log("El total de la factura és:", totalFactura);
+
+			//Exemple 2
+			/*------------------------------------*/
+			let notaExamen = 6;
+			if (notaExamen >6 && notaExamen <9){
+				console.log("Nota final: Notable");
+			}else if (notaExamen >8 && notaExamen <11){
+				console.log("Nota final:  Excel·lent");
+			}else if (notaExamen ==6){
+				console.log("Nota final: bé");
+			}else if (notaExamen == 5 ){
+				console.log("Nota final: Suficient");
+			}else{
+				console.log("Nota incorrecta");
+			}
+
+			//Exemple 3 - switch
+			/*------------------------------------*/
+			let priceProduct=500;
+			let typeClient = "premium";
+			switch(typeClient) {
+				case "premium":
+					console.log("Usuari Premium");
+					priceProduct *=0.85; // Descompte 15%
+					break;
+				case "platinium":
+					console.log("Usuari Plata");
+					priceProduct *=0.90; // Descompte 10%
+					break;
+				default:
+					// code block
+					console.log("Usuari normal");
+				} 
+
+			//Exemple 4 - Strict comparison (===).
+			/*------------------------------------*/
+			price = 5;
+			if (price===5){
+				console.log("price és igual en valor i tipus de variable");
+			}
+
+			//Exemple 5 - Operador Elvis
+			/*------------------------------------*/
+
+			typeClient = "premium";	
+			// Si el client es premium tornarà un descompte. 
+			// En cas contrari tornarà el preu normal			
+			let newPrice = (typeClient=="premium")?(price*0.90):price;
+
+			
+			/*
+			if (typeClient=="premium"){
+				newPrice = price * 0.90;
+			}else{
+				newPrice= price;
+			}*/
+				
+
+			console.log("Preu final:", newPrice);
+
+			/*-------------------------------------------------------
+			Estructura de control iteratives (bucle). 
+			Les més bàsiques són:
+			-------------------------------------------------------*/
+
+			// Per recorrer estructures de dades com arrays o repetir
+			// un bloc de codi n vegades
+			for(var i=0; i<10; i++){
+				console.log("Iteració número:" + i);
+			}
+
+			// Bucle per repetir n vegades un bloc de codi segons una condició 
+			var points=1;
+			while(points<=10){
+				document.write("<p>Points player:" + points +"</p>");
+				points++;
+			}
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

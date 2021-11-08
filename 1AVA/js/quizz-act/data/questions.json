@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "text": "Who is this character?",
+    "points": 30,
+    "img": "tanos.png",
+    "answers": [
+      { "id": 1, "response": "Tanos", "right": true },
+      { "id": 2, "response": "Hulk", "right": false },
+      { "id": 3, "response": "Batman", "right": false }
+    ]
+  },
+  {
+    "id": 2,
+    "text": "To which editorial this character belongs ?",
+    "points": 30,
+    "img": "batman.jpg",
+    "answers": [
+      { "id": 1, "response": "Marvel", "right": false },
+      { "id": 2, "response": "DC", "right": true },
+      { "id": 3, "response": "Planeta comics", "right": false }
+    ]
+  },
+  {
+    "id": 3,
+    "text": "Who is the Avengers teacher?",
+    "points": 30,
+    "img": "doctor-strange.jpg",
+    "answers": [
+      { "id": 1, "response": "Emilyus", "right": false },
+      { "id": 2, "response": "Salomón", "right": false },
+      { "id": 3, "response": "Doctor Strange", "right": true }
+    ]
+  }
+]

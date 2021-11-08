@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Events</title>
+	<script type="text/javascript">
+	/*
+		Es poden assignar events a un element HTML de dues formes diferents:
+		- Al codi HTML: <button onclick="...">Enviar</button>
+		- Al codi javascript (preferible):  element.addEventListener("click", nameFunction);
+	
+	*/
+
+		// Event per controlar la càrrega de la pàgina
+		window.onload = function () {
+			alert("Benvingut a la nostra pàgina");
+			let categoria = document.getElementById("cat");
+			let esp = document.getElementById("esp");
+
+			// Event que es produeix quan es canvia d'opció
+			categoria.addEventListener("change", function () {
+				alert("la categoria ha canviat");
+				changeData(this.selectedIndex);
+			});
+
+			// Event que es dispara quan l'usuari fa click sobre el botó
+			let btnGo = document.getElementById("btn-go");
+			btnGo.addEventListener("click", function () {
+				alert("L'usuari ha fet Click");
+			});
+
+			// Event que es dispara quan l'usuari passa per damunt de la imatge
+			let imgLogo = document.getElementById("logo");
+			imgLogo.addEventListener("mouseover", function () {
+
+				this.src = "https://www.uoc.edu/portal/system/modules/edu.uoc.resources/resources/common/img/icons/favicon/uoc/favicon-32x32.png";
+				alert("L'usuari ha passat per damunt");
+			});
+
+			// Aquesta forma no permet passar paràmetres a la funció
+			imgLogo.addEventListener("mouseout", setImatgeOriginal);
+			function setImatgeOriginal() {
+				this.src = "https://www.udemy.com/staticx/udemy/images/v6/favicon-32x32.png";
+			}
+
+		};
+
+		// Canvia les opcions del segon select depenent del valor seleccionat al primer select 
+		function changeData(indexCat) {
+			// Col·leccions de les especialitats
+			const aProgramacio = ["java", "php", "python"];
+			const aXarxes = ["IPV4", "AZURE", "CISCO"];
+			const aSeguretat = ["Certificados", "phishing", "Cloud"];
+			const numOptions = esp.options.length;
+			
+			// Borramos elementos anteriores 
+			while (esp.options.length) {
+				esp.remove(0);
+			}
+
+			let datos = [];
+			if (indexCat == 0) {
+				datos = aProgramacio;
+			} else if (indexCat == 1) {
+				datos = aXarxes;
+			} else {
+				datos = aSeguretat;
+			}
+
+			// Creació de les noves opcions
+			datos.forEach((nom, i) => {
+				let opt = document.createElement("option");
+				opt.text = nom;
+				opt.value = nom;
+				esp.options.add(opt);
+			});
+		}
+
+	</script>
+	<style>
+		hr {
+			margin: 20px 0;
+		}
+	</style>
+</head>
+
+<body>
+
+	<hr />
+	<label>Categoria:</label>
+	<select id="cat" name="categoria">
+		<option value="p">Programació</option>
+		<option value="x">Xarxes</option>
+		<option value="s">Seguretat</option>
+	</select>
+
+	<label>Especialitat:</label>
+	<select id="esp" name="especialitat">
+		<option value="java">java</option>
+		<option value="php">php</option>
+		<option value="python">python</option>
+	</select>
+
+	<hr>
+	<input id="dades" type="text" value="" onkeyup="alert('Escriu lletra')">
+	<button id="btn-go">Go</button>
+
+
+	<hr>
+	<img id="logo" src="https://www.udemy.com/staticx/udemy/images/v6/favicon-32x32.png" alt="">
+</body>
+
+</html>

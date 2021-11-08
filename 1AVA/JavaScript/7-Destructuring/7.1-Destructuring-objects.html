@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // Desestructuración
+        /*------------------------------------*/
+
+        const persona = {
+            nombre: 'Tony',
+            edad: 45,
+            clave: 'Ironman'
+        };
+
+        // Creación de constantes con el mismo nombre d elos atributos
+        const { edad, clave, nombre } = persona;
+        console.log("Datos persona:");
+        console.log(nombre);
+        console.log(edad);
+        console.log(clave);
+
+        // Cambio de nombre de la variable y 
+        // valor por defecto de una propiedad que pueda ser que no exista 
+        const { clave: nombreEnClave, rango = 'Capitán' } = persona;
+
+        console.log("Nombre clave:", nombreEnClave);
+        console.log("Rango persona:", rango);
+
+
+        // Avanzado: Subdestruturación
+        /*------------------------------------*/
+        const localizacion = {
+            municipio: "Palma",
+            latlng: {
+                lat: 180,
+                lng: 50
+            }
+        }
+        const { municipio, latlng: { lat, lng } } = localizacion;
+        console.log("Municipio", municipio);
+        console.log("Latitud/longitud",lat, lng);
+
+        // Utilización en funciones
+        /*------------------------------------*/
+
+        const lista = [
+            {"nombre":"Pedro", "edad":55, "salario":50000 },
+            {"nombre":"Juan", "edad":45, "salario":40000 },
+            {"nombre":"Laura", "edad":35, "salario":30000 },
+            {"nombre":"Pedro", "edad":33, "salario":30000 }
+        ];
+
+        let filtro = {
+            filtroSalario:50000,
+            filtroEdad:55,
+            filtroNombre:"Pedro"
+        }
+
+        function filtrarDatos(listaEmpleados, filtro){
+            const {filtroSalario, filtroEdad} = filtro;
+            //Filtrar por edad y salario
+            const datos = listaEmpleados.filter(e => e.salario>=filtroSalario && e.edad>=filtroEdad); 
+            return datos;
+        }
+
+        console.log("Empleados que cumplen el filtro;", filtrarDatos(lista, filtro) );
+
+        filtro.filtroEdad=30;
+
+        function encontrarEmpleadosPorNombreEdad(listaEmpleados, {filtroNombre, filtroEdad}){
+            const datos = listaEmpleados.filter(e => e.nombre==filtroNombre && e.edad>=filtroEdad);
+            return datos;
+        }
+
+        console.log("Empleados con nombre y edad según filtro:", encontrarEmpleadosPorNombreEdad(lista, filtro) );
+        
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
