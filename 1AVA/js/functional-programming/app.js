@@ -12,9 +12,11 @@ const employees = [
     ];
     
 let sumSalaryOver40y = employees
-    .filter(e => e.age > 40)
+    .filter(e => e.age < 40)
     .map(e => e.salary)
     .reduce((x, y) => x + y);
+
+    console.log(sumSalaryOver40y);
 
 let uppercaseLowerThan40 = employees
     .filter(e => e.salary < 30000)
