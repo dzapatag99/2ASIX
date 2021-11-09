@@ -33,11 +33,19 @@ let empleadoJoven = employees
 let sumaDoble = employees
     .map(e => e.salary * 2)
     .reduce((total, value) => total + value, 0)
+console.log(sumaDoble);
 
 let mediaEdad = (employees
     .map(e => e.age)
     .reduce((a, b) => a + b, 0)
     )/employees.length;
 
-console.log(mediaEdad)
-console.log(sumaDoble);
+
+
+let aumentoSalarioMayores40 = employees
+    .filter(e => e.age >=40)
+    .map(e => e.name)
+    employees.forEach(e => {
+        e.salary * 1.15;
+    })
+console.log(aumentoSalarioMayores40)

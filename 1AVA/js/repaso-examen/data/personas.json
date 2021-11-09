@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nombre": "David Zapata Gonzalez",
+        "edad": 18,
+        "dni": "43478020Q",
+        "cliente": true,
+        "trabajador": false
+    }
+
+
+]

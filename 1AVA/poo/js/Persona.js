@@ -1,11 +1,16 @@
 
-    function Persona(nombre){
-        this.nombre = nombre;
-
-        this.saludar = function(){
-            return `${this.nombre} dice hola`
-        }
+class Persona {
+    constructor(id, nombre, edad, dni){
+        this.id = id;
+        this.nombre = nombre || [];
+        this.edad = edad;
+        this.dni = dni;
     }
 
-    const david = new Persona("david")
-    conso
+    static buscarNombre(nombre){
+        return this.personas
+
+    }
+
+
+}
